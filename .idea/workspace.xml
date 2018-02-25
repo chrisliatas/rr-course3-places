@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="142fab39-5015-408e-b4b9-ded20551e8e0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/point.rb" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/models/address_component.rb" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -34,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="point.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="point.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/point.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
               <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="address_component.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/address_component.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -61,6 +71,7 @@
       <list>
         <option value="$PROJECT_DIR$/app/models/place.rb" />
         <option value="$PROJECT_DIR$/app/models/point.rb" />
+        <option value="$PROJECT_DIR$/app/models/address_component.rb" />
       </list>
     </option>
   </component>
@@ -281,12 +292,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519583851260</updated>
-      <workItem from="1519583856711" duration="2643000" />
+      <workItem from="1519583856711" duration="2927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2643000" />
+    <option name="totallyTimeSpent" value="2927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="-4" width="1879" height="1084" extended-state="6" />
@@ -336,6 +347,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/address_component.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding />
         </state>
       </provider>
