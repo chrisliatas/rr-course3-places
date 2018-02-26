@@ -36,4 +36,8 @@ class Photo
       Photo.mongo_client.database.fs.find(_id: BSON::ObjectId.from_string(@id)).update_one(doc)
     end
   end
+
+  def self.all(offset = 0,limit = 0)
+    mongo_client.database.fs.find.skip(offset).limit(limit).map {|doc| Photo.new(doc)}
+  end
 end
