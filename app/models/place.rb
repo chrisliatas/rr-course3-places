@@ -34,4 +34,9 @@ class Place
     place = collection.find(_id: BSON::ObjectId.from_string(id)).first
     Place.new(place) unless place.nil?
   end
+
+  def self.all(offset = 0, limit = 0)
+    places = collection.find.skip(offset).limit(limit)
+    to_places(places)
+  end
 end
