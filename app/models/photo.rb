@@ -57,4 +57,8 @@ class Photo
       return bfr
     end
   end
+
+  def destroy
+    Photo.mongo_client.database.fs.find(:_id=>BSON::ObjectId.from_string(@id)).delete_one
+  end
 end
