@@ -90,4 +90,7 @@ class Place
                                                      } } )
   end
 
+  def near(max_meters = nil)
+    Place.to_places(Place.near(@location, max_meters))
+  end
 end
