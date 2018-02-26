@@ -47,11 +47,11 @@ class Photo
   end
 
   def contents
-    f = Photo.mongo_client.database.fs.find_one(:_id=>BSON::ObjectId.from_string(@id))
+    f = Photo.mongo_client.database.fs.find_one(:_id => BSON::ObjectId.from_string(@id))
 
     if f
       bfr = ""
-      f.chunks.reduce([]) do |x,chunk|
+      f.chunks.reduce([]) do |x, chunk|
         bfr << chunk.data.data
       end
       return bfr
@@ -59,7 +59,7 @@ class Photo
   end
 
   def destroy
-    Photo.mongo_client.database.fs.find(:_id=>BSON::ObjectId.from_string(@id)).delete_one
+    Photo.mongo_client.database.fs.find(:_id => BSON::ObjectId.from_string(@id)).delete_one
   end
 
   def find_nearest_place_id(maxdis)
@@ -77,11 +77,15 @@ class Photo
 
   def place=(place)
     @place = if place.class == Place
-      BSON::ObjectId.from_string(place.id)
-    elsif place.class == String
-      BSON::ObjectId.from_string(place)
-    else
-      place
+               BSON::ObjectId.from_string(place.id)
+             elsif place.class == String
+               BSON::ObjectId.from_string(place)
+             else
+               place
              end
+  end
+
+  def self.find_photos_for_place id
+    mongo_client.database.fs.find('metadata.place' => BSON::ObjectId.from_string(id))
   end
 end
