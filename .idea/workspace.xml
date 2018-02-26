@@ -36,8 +36,8 @@
       <file leaf-file-name="photo.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/photo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="61" column="45" lean-forward="false" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+            <state relative-caret-position="416">
+              <caret line="69" column="24" lean-forward="true" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -305,12 +305,12 @@
       <updated>1519583851260</updated>
       <workItem from="1519583856711" duration="3578000" />
       <workItem from="1519651935184" duration="602000" />
-      <workItem from="1519663291570" duration="10442000" />
+      <workItem from="1519663291570" duration="10762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14622000" />
+    <option name="totallyTimeSpent" value="14942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="280" y="52" width="1881" height="1092" extended-state="6" />
@@ -422,8 +422,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/photo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="61" column="45" lean-forward="false" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        <state relative-caret-position="416">
+          <caret line="69" column="24" lean-forward="true" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
           <folding />
         </state>
       </provider>
