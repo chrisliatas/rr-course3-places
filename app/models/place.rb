@@ -39,4 +39,20 @@ class Place
     places = collection.find.skip(offset).limit(limit)
     to_places(places)
   end
+
+  def destroy
+    id = BSON::ObjectId.from_string(@id)
+    self.class.collection.delete_one(:_id => id)
+  end
+
+  def self.get_address_components(sort = nil, offset = nil, limit = nil)
+    elements = [
+        {:$unwind => "$address_components"},
+        {:$project => {address_components: 1, formatted_address: 1, geometry: {geolocation: 1}}}
+    ]
+    elements << {:$sort => sort} unless sort.nil?
+    elements << {:$skip => offset} unless offset.nil?
+    elements << {:$limit => limit} unless limit.nil?
+    collection.find.aggregate(elements)
+  end
 end
