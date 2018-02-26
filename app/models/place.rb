@@ -47,12 +47,22 @@ class Place
 
   def self.get_address_components(sort = nil, offset = nil, limit = nil)
     elements = [
-        {:$unwind => "$address_components"},
-        {:$project => {address_components: 1, formatted_address: 1, geometry: {geolocation: 1}}}
+      { :$unwind => "$address_components" },
+      { :$project => { address_components: 1, formatted_address: 1, geometry: { geolocation: 1 } } }
     ]
-    elements << {:$sort => sort} unless sort.nil?
-    elements << {:$skip => offset} unless offset.nil?
-    elements << {:$limit => limit} unless limit.nil?
+    elements << { :$sort => sort } unless sort.nil?
+    elements << { :$skip => offset } unless offset.nil?
+    elements << { :$limit => limit } unless limit.nil?
     collection.find.aggregate(elements)
+  end
+
+  def self.get_country_names
+    collection.find.aggregate([
+                                { :$project => { _id: 0, address_components: { long_name: 1, types: 1 } } },
+                                { :$unwind => "$address_components" },
+                                { :$unwind => "$address_components.types" },
+                                { :$match => { "address_components.types" => "country" } },
+                                { :$group => { :_id=>"$address_components.long_name" } }
+                              ]).to_a.map { |h| h[:_id] }
   end
 end
