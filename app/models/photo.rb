@@ -70,4 +70,18 @@ class Photo
       return place[:_id]
     end
   end
+
+  def place
+    Place.find(@place.to_s) unless @place.nil?
+  end
+
+  def place=(place)
+    @place = if place.class == Place
+      BSON::ObjectId.from_string(place.id)
+    elsif place.class == String
+      BSON::ObjectId.from_string(place)
+    else
+      place
+             end
+  end
 end
