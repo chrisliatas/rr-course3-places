@@ -93,4 +93,9 @@ class Place
   def near(max_meters = nil)
     Place.to_places(Place.near(@location, max_meters))
   end
+
+  def photos(offset = 0, limit = 0)
+    photos = Photo.find_photos_for_place(@id).skip(offset).limit(limit)
+    photos.map { |photo| Photo.new(photo) }
+  end
 end
