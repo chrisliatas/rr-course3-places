@@ -37,7 +37,12 @@ class Photo
     end
   end
 
-  def self.all(offset = 0,limit = 0)
-    mongo_client.database.fs.find.skip(offset).limit(limit).map {|doc| Photo.new(doc)}
+  def self.all(offset = 0, limit = 0)
+    mongo_client.database.fs.find.skip(offset).limit(limit).map { |doc| Photo.new(doc) }
+  end
+
+  def self.find(id)
+    doc = mongo_client.database.fs.find(_id: BSON::ObjectId.from_string(id)).first
+    Photo.new(doc) unless doc.nil?
   end
 end
