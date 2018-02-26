@@ -45,4 +45,16 @@ class Photo
     doc = mongo_client.database.fs.find(_id: BSON::ObjectId.from_string(id)).first
     Photo.new(doc) unless doc.nil?
   end
+
+  def contents
+    f = Photo.mongo_client.database.fs.find_one(:_id=>BSON::ObjectId.from_string(@id))
+
+    if f
+      bfr = ""
+      f.chunks.reduce([]) do |x,chunk|
+        bfr << chunk.data.data
+      end
+      return bfr
+    end
+  end
 end
