@@ -26,8 +26,8 @@
       <file leaf-file-name="place.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/place.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="492">
+              <caret line="33" column="70" lean-forward="true" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -293,12 +293,12 @@
       <updated>1519583851260</updated>
       <workItem from="1519583856711" duration="3578000" />
       <workItem from="1519651935184" duration="602000" />
-      <workItem from="1519663291570" duration="1364000" />
+      <workItem from="1519663291570" duration="1645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5544000" />
+    <option name="totallyTimeSpent" value="5825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="280" y="52" width="1881" height="1092" extended-state="6" />
@@ -386,8 +386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/place.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="492">
+          <caret line="33" column="70" lean-forward="true" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
           <folding />
         </state>
       </provider>

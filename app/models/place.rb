@@ -23,10 +23,15 @@ class Place
   end
 
   def self.find_by_short_name(short_name)
-    collection.find({"address_components.short_name" => short_name})
+    collection.find("address_components.short_name" => short_name)
   end
 
   def self.to_places(places)
     places.map { |place| Place.new(place) }
+  end
+
+  def self.find(id)
+    place = collection.find(_id: BSON::ObjectId.from_string(id)).first
+    Place.new(place) unless place.nil?
   end
 end
