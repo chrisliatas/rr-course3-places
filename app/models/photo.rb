@@ -1,4 +1,5 @@
 class Photo
+  require 'exifr/jpeg'
   include Mongoid::Document
   attr_accessor :id, :location
   attr_writer :contents

@@ -69,6 +69,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.fetch(:place, {})
+      params.require(:place).permit(:formatted_address)
     end
 end

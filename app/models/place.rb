@@ -1,5 +1,10 @@
 class Place
+  include ActiveModel::Model
   include Mongoid::Document
+
+  def persisted?
+    @id.nil?
+  end
 
   attr_accessor :id, :formatted_address, :location, :address_components
 
@@ -47,8 +52,8 @@ class Place
 
   def self.get_address_components(sort = nil, offset = nil, limit = nil)
     elements = [
-      { :$unwind => '$address_components' },
-      { :$project => { address_components: 1, formatted_address: 1, geometry: { geolocation: 1 } } }
+    { :$unwind => '$address_components' },
+    { :$project => { address_components: 1, formatted_address: 1, geometry: { geolocation: 1 } } }
     ]
     elements << { :$sort => sort } unless sort.nil?
     elements << { :$skip => offset } unless offset.nil?
@@ -58,21 +63,21 @@ class Place
 
   def self.get_country_names
     collection.find.aggregate([
-                                { :$project => { _id: 0, address_components: { long_name: 1, types: 1 } } },
-                                { :$unwind => '$address_components' },
-                                { :$unwind => '$address_components.types' },
-                                { :$match => { 'address_components.types' => 'country' } },
-                                { :$group => { _id: '$address_components.long_name' } }
-                              ]).to_a.map { |h| h[:_id] }
+    { :$project => { _id: 0, address_components: { long_name: 1, types: 1 } } },
+    { :$unwind => '$address_components' },
+    { :$unwind => '$address_components.types' },
+    { :$match => { 'address_components.types' => 'country' } },
+    { :$group => { _id: '$address_components.long_name' } }
+    ]).to_a.map { |h| h[:_id] }
   end
 
   def self.find_ids_by_country_code(country_code)
     collection.find.aggregate([
-                                { :$unwind => '$address_components' },
-                                { :$match => { 'address_components.types' => 'country',
-                                               'address_components.short_name' => country_code} },
-                                { :$project => { _id: 1 } }
-                              ]).to_a.map { |doc| doc[:_id].to_s }
+    { :$unwind => '$address_components' },
+    { :$match => { 'address_components.types' => 'country',
+                                  'address_components.short_name' => country_code} },
+    { :$project => { _id: 1 } }
+    ]).to_a.map { |doc| doc[:_id].to_s }
   end
 
   def self.create_indexes
@@ -85,9 +90,9 @@ class Place
 
   def self.near(point, max_meters = nil)
     collection.find( :'geometry.geolocation' => { :$near => {
-                                                       :$geometry => point.to_hash,
-                                                       :$maxDistance => max_meters
-                                                     } } )
+                                                  :$geometry => point.to_hash,
+                                                  :$maxDistance => max_meters
+    } } )
   end
 
   def near(max_meters = nil)
