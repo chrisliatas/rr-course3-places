@@ -200,7 +200,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
-  exifr (~> 1.2.6)
+  exifr
   jbuilder (~> 2.0)
   jquery-rails
   mongo (~> 2.1.0)
